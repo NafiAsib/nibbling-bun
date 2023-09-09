@@ -21,3 +21,17 @@ code .
 ```
 
 ***Depending on your internet speed, first time installation could take some time***
+
+## Start the Bun server
+
+- To start the existing `bunana` app
+  ```bash
+  cd bunana
+  bun install
+  bun dev
+  ```
+  This will start the development server on port 3000. Visit `http://localhost:3000`
+- To create a new app
+  ```bash
+  bun init
+  ```
