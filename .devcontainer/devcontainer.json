@@ -1,0 +1,51 @@
+{
+  "name": "Bun 1.0",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+
+  "workspaceMount": "src=${localWorkspaceFolder},dst=/workspace,type=bind,consistency=cached",
+  "workspaceFolder": "/workspace",
+  "mounts": [
+    "type=bind,source=${localEnv:HOME}/.ssh,target=/home/vscode/.ssh,readonly"
+  ],
+  // Forward the port you want to use for Bun
+  "forwardPorts": [3000],
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:2": {
+      "username": "automatic",
+      "uid": "automatic",
+      "gid": "automatic",
+      "installZsh": true,
+      "upgradePackages": true
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "humao.rest-client",
+        "visualstudioexptteam.vscodeintellicode",
+        "visualstudiotxptteam.vscodeintellicode-completions",
+        "ms-azuretools.vscode-docker",
+        "dbaeumer.vscode-eslint",
+        "christian-kohler.npm-intellisense",
+        "eg2.vscode-npm-script",
+        "esbenp.prettier-vscode",
+        "wallabyjs.console-ninja",
+        "usernamehw.errorlens",
+        "editorconfig.editorconfig"
+      ],
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "zsh",
+        "editor.formatOnPaste": true,
+        "editor.formatOnSave": true,
+        "editor.guides.bracketPairs": "active",
+        "scm.defaultViewMode": "tree",
+        "debug.internalConsoleOptions": "neverOpen",
+        "eslint.validate": ["javascript", "typescript"]
+      }
+    }
+  },
+  "postCreateCommand": "zsh .devcontainer/post-script.zsh",
+  "remoteUser": "vscode"
+}
